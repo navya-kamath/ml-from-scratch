@@ -75,3 +75,87 @@ Also wrote a Python function to check whether two vectors are orthogonal by comp
 
 ✓ One question I still have
 Why does the dot product naturally involve cos(θ), and what is the geometric intuition behind that formula?
+
+# Day 3 (Gilbert Strang - Introduction to Linear Algebra, Section 1.3)
+
+✓ Concepts learned
+- What is a matrix?
+- Matrix dimensions
+- Matrix-vector multiplication
+- Matrix interpretation
+- Matrices in Machine Learning
+
+✓ My explanation (without looking at the book)
+A matrix is a rectangular arrangement of numbers organized into rows and columns. 
+It can represent multiple linear equations or a linear transformation. 
+Unlike a vector, which stores one-dimensional data, a matrix organizes relationships between multiple vectors or variables.
+
+✓ Mistakes I corrected today
+- A matrix is not simply a "2D array" in programming; mathematically, it represents a linear transformation or a system of equations.
+- Matrix-vector multiplication is only possible when the number of columns in the matrix equals the number of elements in the vector.
+
+✓ Machine Learning connection
+- Datasets are often stored as matrices where each row is a training example and each column is a feature.
+- Neural network layers perform matrix-vector and matrix-matrix multiplication to compute predictions.
+
+✓ One solved example
+
+A =
+[[1, 2],
+ [3, 4],
+ [5, 6]]
+
+x =
+[[2],
+ [1]]
+
+Ax =
+[[4],
+ [10],
+ [16]]
+
+The result is a vector with 3 elements because A has 3 rows.
+
+✓ One question I still have
+Why can a matrix be interpreted as both a collection of column vectors and as a linear transformation?
+
+# Day 4 (Gilbert Strang - Introduction to Linear Algebra, Section 2.1)
+
+✓ Concepts learned
+- Matrix multiplication
+- Matrix dimensions
+- Identity matrix
+- Non-commutativity of matrix multiplication
+
+✓ My explanation (without looking at the book)
+Matrix multiplication combines the rows of the first matrix with the columns of the second matrix using the dot product. Two matrices can be multiplied only when the number of columns in the first matrix equals the number of rows in the second matrix. The resulting matrix has the number of rows of the first matrix and the number of columns of the second matrix.
+
+✓ Mistakes I corrected today
+- Matrix multiplication is not performed element by element.
+- The output dimensions are determined by the outer dimensions of the two matrices.
+- The identity matrix acts like the number 1 for matrices because multiplying by it leaves a matrix unchanged.
+
+✓ Machine Learning connection
+- Every forward pass in a neural network involves matrix multiplication.
+- Linear regression and deep learning compute predictions using repeated matrix multiplications.
+
+✓ One solved example
+
+A (2×3)
+
+[[1,2,3],
+ [4,5,6]]
+
+B (3×2)
+
+[[1,2],
+ [3,4],
+ [5,6]]
+
+AB (2×2)
+
+[[22,28],
+ [49,64]]
+
+✓ One question I still have
+Why is matrix multiplication generally not commutative (AB ≠ BA), and what is the geometric intuition behind it?
