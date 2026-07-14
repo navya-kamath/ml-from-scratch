@@ -159,3 +159,97 @@ AB (2×2)
 
 ✓ One question I still have
 Why is matrix multiplication generally not commutative (AB ≠ BA), and what is the geometric intuition behind it?
+
+# Day 5
+✓ Concepts learned
+Inverse of a matrix
+Invertible (non-singular) and singular matrices
+Solving linear systems using Ax = b
+Relationship between inverse matrix and identity matrix
+Conditions for a matrix to have an inverse
+✓ My explanation (without looking at the book)
+
+An inverse matrix is a matrix that reverses the effect of another matrix. If a matrix A has an inverse A⁻¹, then:
+
+A⁻¹A = AA⁻¹ = I
+
+where I is the identity matrix.
+
+If we have the equation:
+
+Ax = b
+
+we can solve for x by multiplying both sides by the inverse of A:
+
+x = A⁻¹b
+
+This is only possible if A has an inverse.
+
+✓ Mistakes I corrected today
+Not every square matrix has an inverse.
+A matrix must be square and have a non-zero determinant to be invertible.
+A matrix with a determinant of zero is called a singular matrix and does not have an inverse.
+The inverse of a matrix is not obtained by taking the reciprocal of each element.
+Matrix multiplication is not commutative, but both A⁻¹A and AA⁻¹ are equal to the identity matrix when the inverse exists.
+✓ Machine Learning connection
+
+The Normal Equation for Linear Regression uses matrix inversion:
+
+w = (XᵀX)⁻¹Xᵀy
+
+Matrix inverses are used in covariance matrix calculations and Mahalanobis distance.
+In practice, machine learning libraries often avoid explicitly computing matrix inverses because they are computationally expensive and can be numerically unstable.
+✓ One solved example
+
+Let
+
+A = |2 1|
+    |5 3|
+
+The determinant is:
+
+det(A) = (2 × 3) - (1 × 5)
+       = 6 - 5
+       = 1
+
+Since the determinant is non-zero, the matrix is invertible.
+
+The inverse is:
+
+A⁻¹ = | 3 -1|
+      |-5  2|
+
+Verification:
+
+AA⁻¹ = I
+✓ Questions I answered today
+What is the inverse of a matrix?
+
+An inverse matrix is a matrix that reverses the effect of another matrix. Multiplying a matrix by its inverse gives the identity matrix.
+
+Why doesn't every matrix have an inverse?
+
+Only square matrices with a non-zero determinant have an inverse. If the determinant is zero, the matrix is singular and cannot be inverted.
+
+What does Ax = b mean in simple English?
+
+The matrix A transforms the vector x into another vector b. If A has an inverse, we can recover x from b.
+
+Why is A⁻¹A = I similar to 5 × (1/5) = 1?
+
+Both the inverse matrix and the reciprocal undo the original operation.
+
+Number:
+5 × (1/5) = 1
+Matrix:
+A⁻¹A = I
+
+The identity matrix plays the same role for matrices that the number 1 plays in ordinary multiplication.
+
+Can every matrix have an inverse?
+
+No. Only square matrices with a non-zero determinant have an inverse.
+
+✓ One question I still have
+
+Why does a determinant of zero mean that the matrix loses information and therefore cannot be inverted?

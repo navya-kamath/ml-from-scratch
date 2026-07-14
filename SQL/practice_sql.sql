@@ -20,3 +20,10 @@ WHERE 2 >= (
     WHERE E2.Salary >= E1.Salary
 )
 ORDER BY Salary DESC;
+
+# 4. Find the students whose marks are greater than the average marks of all students
+SELECT S1.Name
+FROM Students S1
+WHERE S1.Marks > 
+    (SELECT AVG(S2.Marks)
+    FROM Students S2)
