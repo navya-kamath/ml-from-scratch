@@ -27,3 +27,10 @@ FROM Students S1
 WHERE S1.Marks > 
     (SELECT AVG(S2.Marks)
     FROM Students S2)
+
+# 5. Find the customers who placed more than 5 orders. OrderID, CustomerID, OrderDate, Amount
+SELECT CustomerID 
+FROM Orders 
+GROUP BY CustomerID
+HAVING COUNT(OrderID) > 5
+
