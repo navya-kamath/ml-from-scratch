@@ -253,3 +253,100 @@ No. Only square matrices with a non-zero determinant have an inverse.
 ✓ One question I still have
 
 Why does a determinant of zero mean that the matrix loses information and therefore cannot be inverted?
+
+# Day 6 
+What is a Transpose?
+
+The transpose of a matrix is obtained by interchanging its rows and columns.
+
+If a matrix is represented as A, then its transpose is represented as Aᵀ.
+
+Mathematically,
+
+(Aᵀ)ij = Aji
+
+This means that the element at row i, column j becomes the element at row j, column i.
+
+Example
+A =      Aᵀ =
+1 2 3    1 4
+4 5 6    2 5
+         3 6
+Why Do We Need the Transpose?
+
+The transpose is useful because it allows us to:
+
+Change rows into columns (and vice versa).
+Perform valid matrix multiplications when dimensions do not initially match.
+Compute dot products using matrix multiplication.
+Work with vectors and matrices in a consistent mathematical form.
+Simplify many linear algebra operations used in machine learning.
+Symmetric Matrix
+
+A symmetric matrix is a square matrix that is equal to its transpose.
+
+Mathematically,
+
+A = Aᵀ
+Example
+1 2 3
+2 5 6
+3 6 9
+
+Since the matrix is identical to its transpose, it is symmetric.
+
+Properties of the Transpose
+Transpose of a transpose
+(Aᵀ)ᵀ = A
+Transpose of a product
+(AB)ᵀ = BᵀAᵀ
+
+The order of multiplication is reversed.
+
+Transpose of an inverse
+(A⁻¹)ᵀ = (Aᵀ)⁻¹
+Product with its transpose
+AᵀA
+
+is always a symmetric matrix because
+
+(AᵀA)ᵀ = AᵀA
+
+Similarly,
+
+AAᵀ
+
+is also always symmetric.
+
+Is AᵀA Always Symmetric?
+
+Yes.
+
+For any matrix A (square or rectangular), the product
+
+AᵀA
+
+is always symmetric, provided the multiplication is defined.
+
+How Is the Transpose Used in Machine Learning?
+
+The transpose appears in many machine learning algorithms, including:
+
+Computing predictions using matrices and vectors.
+Calculating gradients during optimization.
+Linear Regression (Normal Equation).
+Logistic Regression.
+Principal Component Analysis (PCA).
+Covariance matrix computation.
+Neural network backpropagation.
+
+The transpose helps ensure that matrix dimensions are compatible during computations and is fundamental to many ML algorithms.
+
+Python Implementation
+
+Implemented from scratch:
+
+Transpose of a square matrix.
+Transpose of a rectangular matrix.
+Matrix multiplication.
+Verified that AᵀA is always symmetric using Python.
