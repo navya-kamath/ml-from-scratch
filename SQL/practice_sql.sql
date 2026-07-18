@@ -34,3 +34,7 @@ FROM Orders
 GROUP BY CustomerID
 HAVING COUNT(OrderID) > 5
 
+# 6. Find employees who do not have a manager
+SELECT Employee, Name
+FROM Employees
+WHERE ManagerID IS NULL

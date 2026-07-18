@@ -350,3 +350,122 @@ Transpose of a square matrix.
 Transpose of a rectangular matrix.
 Matrix multiplication.
 Verified that AᵀA is always symmetric using Python.
+
+# Day 7 (Gilbert Strang – Introduction to Linear Algebra, Section 2.7)
+
+## ✓ Concepts Learned
+
+- Why row exchanges are needed during Gaussian elimination
+- Pivoting
+- Permutation matrix
+- Effect of multiplying by a permutation matrix
+- High-level idea of **PA = LU** factorization
+
+---
+
+## ✓ My Explanation (without looking at the book)
+
+During Gaussian elimination, we sometimes encounter a zero (or very small) pivot element. Since division by zero is impossible and dividing by very small numbers can lead to numerical instability, we swap rows to place a suitable pivot in the current position.
+
+Instead of performing row exchanges manually, linear algebra represents these operations using a **permutation matrix**.
+
+A **permutation matrix** is obtained by rearranging the rows of the identity matrix. Multiplying a matrix by a permutation matrix performs the corresponding row or column exchange.
+
+The equation
+
+```
+PA = LU
+```
+
+means that after permuting the rows of matrix **A** using the permutation matrix **P**, the resulting matrix can be factorized into:
+
+- **L** – a lower triangular matrix containing the elimination multipliers.
+- **U** – an upper triangular matrix obtained after Gaussian elimination.
+
+This factorization makes solving systems of linear equations much more efficient.
+
+---
+
+## ✓ Mistakes I Corrected Today
+
+- A permutation matrix is **not** an arbitrary matrix; it is created by rearranging the rows of the identity matrix.
+- Left multiplication (`PA`) performs **row exchanges**, while right multiplication (`AP`) performs **column exchanges**.
+- Row exchanges are performed to obtain a valid pivot, not simply to reorder rows.
+- The decomposition is **PA = LU**, not always **A = LU**. When row exchanges are required, the permutation matrix **P** must be included.
+
+---
+
+## ✓ Machine Learning Connection
+
+Permutation matrices and LU decomposition are used in many numerical linear algebra algorithms that power machine learning libraries.
+
+Applications include:
+
+- Efficiently solving systems of linear equations.
+- Matrix factorization in scientific computing.
+- Training machine learning models that involve linear systems.
+- Improving numerical stability during matrix computations.
+- Backend implementations of libraries such as NumPy, SciPy, PyTorch, and TensorFlow.
+
+Although high-level ML libraries perform these computations internally, understanding permutation matrices provides insight into how these libraries solve matrix equations efficiently.
+
+---
+
+## ✓ One Solved Example
+
+Start with
+
+```
+A =
+| 0  2 |
+| 1  3 |
+```
+
+The first pivot is **0**, so Gaussian elimination cannot proceed.
+
+Swap the two rows.
+
+The permutation matrix is
+
+```
+P =
+| 0  1 |
+| 1  0 |
+```
+
+Multiplying gives
+
+```
+PA =
+| 1  3 |
+| 0  2 |
+```
+
+Now elimination can proceed normally because the pivot is non-zero.
+
+---
+
+## ✓ Questions I Answered Today
+
+### Why are row exchanges needed?
+
+Row exchanges place a suitable pivot element in the current position, allowing Gaussian elimination to continue and improving numerical stability.
+
+### What is a permutation matrix?
+
+A permutation matrix is formed by rearranging the rows of the identity matrix. It represents row exchanges as a matrix operation.
+
+### What happens when we multiply by a permutation matrix?
+
+- **Left multiplication (`PA`)** exchanges the rows of matrix **A**.
+- **Right multiplication (`AP`)** exchanges the columns of matrix **A**.
+
+### What does **PA = LU** mean?
+
+It means that after rearranging the rows of **A** using the permutation matrix **P**, the resulting matrix can be decomposed into a lower triangular matrix **L** and an upper triangular matrix **U**.
+
+---
+
+## ✓ One Question I Still Have
+
+Why does **partial pivoting** improve numerical stability, and why is it preferred over performing Gaussian elimination without pivoting?
